@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Supereva Technology — Website
 
-## Getting Started
+The marketing site for Supereva Technology Private Limited, built with Next.js (App Router), TypeScript, Tailwind CSS v4, and Base UI.
 
-First, run the development server:
+## Tech stack
+
+- **Framework**: Next.js 16 (App Router, React Server Components)
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS v4
+- **UI primitives**: Base UI (`@base-ui/react`) — Button, Input, Accordion, Drawer
+- **Icons**: lucide-react
+- **Forms**: react-hook-form + zod
+- **Animation**: framer-motion (`LazyMotion` + `domAnimation` for a smaller bundle)
+- **Theming**: next-themes (light/dark)
+- **Toasts**: sonner
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # then edit NEXT_PUBLIC_SITE_URL
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Required | Description |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Yes, before production | Canonical production URL (no trailing slash). Drives `metadataBase`, canonical tags, `sitemap.xml`, `robots.txt`, Open Graph images, and JSON-LD. Falls back to a placeholder domain if unset — **must be set in Vercel's project settings** before going live. |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                  Routes (App Router). Each route composes reusable
+                       section components with content from constants/.
+components/
+  ui/                  Design-system primitives (Button, Input, Skeleton, ...)
+  layout/              Navbar, Footer, Container, Section, PageHero
+  sections/            Homepage sections (Hero, Services, Differentiators, ...)
+  services/ portfolio/ blog/ company/
+                       Section components specific to each content type
+constants/
+  services/ case-studies/ blog/
+                       One file per service / case study / article, plus an
+                       index.ts aggregator (array + getXBySlug + slugs)
+  site.ts              Site-wide config: nav, footer links, social links
+  company.ts            Mission/vision/values/timeline/leadership content
+lib/
+  metadata.ts          constructMetadata() — canonical SEO helper used by every page
+  schema.ts            JSON-LD builders (Organization, Service, Article, Breadcrumb, ...)
+  og-image.tsx         Shared renderer for dynamically-generated OG images
+types/                 Shared TypeScript types, re-exported via types/index.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Services, case studies, and blog posts are each driven by a single content
+file per item plus a `[slug]` dynamic route — adding a new one means adding
+a content file and one line to its index, not a new page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content notes
 
-## Deploy on Vercel
+Some content is intentionally a placeholder pending real company data —
+each is marked clearly in the UI rather than fabricated:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Leadership** (`/company/leadership`): role titles are real, names show
+  "Name to be announced" until provided.
+- **Company statistics, Awards, Certifications** (`/company/about`,
+  `/company`): shown as honest "coming soon" states.
+- **Office address** (`/contact`): placeholder until a real location exists;
+  the LocalBusiness JSON-LD omits the address block entirely rather than
+  inventing one.
+- **Portfolio case studies**: anonymized client descriptors (e.g. "A Series B
+  fintech lender") — standard practice for confidential engagements, not
+  literal client names.
+- **Contact form** (`app/api/contact/route.ts`): validates and logs
+  submissions server-side; no email/CRM delivery is wired up yet. Wire in a
+  provider (e.g. Resend) before relying on this in production.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Search `constants/site.ts` for the placeholder domain and social links and
+update them with real values.
+
+## Scripts
+
+```bash
+npm run dev      # start the dev server
+npm run build    # production build
+npm run start    # serve the production build locally
+npm run lint     # eslint
+```
+
+## Deploying to Vercel
+
+This is a zero-config Next.js app — connect the repository in Vercel and it
+will detect the framework automatically. Before the first production deploy:
+
+1. Set `NEXT_PUBLIC_SITE_URL` in the Vercel project's environment variables.
+2. Update the placeholder domain/social links in `constants/site.ts`.
+3. Wire up real contact-form delivery (see above).

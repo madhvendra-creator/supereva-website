@@ -1,0 +1,9 @@
+export { Breadcrumbs } from "./breadcrumbs";
+export { Faq } from "./faq";
+export { Industries } from "./industries";
+export { Offerings } from "./offerings";
+export { ProblemStatement } from "./problem-statement";
+export { ProcessSteps } from "./process-steps";
+export { RelatedServices } from "./related-services";
+export { ServiceHero } from "./service-hero";
+export { Technologies } from "./technologies";

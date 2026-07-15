@@ -1,0 +1,13 @@
+export { Approach } from "./approach";
+export { BlogPreview } from "./blog-preview";
+export { CaseStudies } from "./case-studies";
+export { CtaBanner } from "./cta-banner";
+export { Differentiators } from "./differentiators";
+export { Hero } from "./hero";
+export { HeroBackground } from "./hero-background";
+export { HowWeHelp } from "./how-we-help";
+export { Services } from "./services";
+export { TechStack } from "./tech-stack";
+export { Testimonials } from "./testimonials";
+export { TrustBar } from "./trust-bar";
+export { WhatWeDo } from "./what-we-do";
