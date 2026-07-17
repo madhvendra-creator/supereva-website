@@ -4,7 +4,7 @@ import { services } from "@/constants/services";
 import type { FooterLinkGroup, MegaNavItem, SocialLink } from "@/types";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.supereva.tech";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.superevatechnology.com";
 
 const siteDomain = new URL(siteUrl).hostname.replace(/^www\./, "");
 

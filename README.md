@@ -28,7 +28,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Required | Description |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Yes, before production | Canonical production URL (no trailing slash). Drives `metadataBase`, canonical tags, `sitemap.xml`, `robots.txt`, Open Graph images, and JSON-LD. Falls back to a placeholder domain if unset — **must be set in Vercel's project settings** before going live. |
+| `NEXT_PUBLIC_SITE_URL` | Yes, before production | Canonical production URL (no trailing slash). Drives `metadataBase`, canonical tags, `sitemap.xml`, `robots.txt`, Open Graph images, and JSON-LD. Falls back to `https://www.superevatechnology.com` if unset — **must be set in Vercel's project settings** before going live. |
 
 ## Project structure
 
