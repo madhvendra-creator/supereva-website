@@ -18,7 +18,7 @@ export type MegaNavItem = {
 export type SocialLink = {
   label: string;
   href: string;
-  icon: "github" | "linkedin" | "twitter" | "youtube";
+  icon: "instagram" | "facebook" | "linkedin" | "youtube";
 };
 
 export type FooterLinkGroup = {

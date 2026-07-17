@@ -18,9 +18,9 @@ export const siteConfig = {
   contactEmail: "info@superevatechnology.com",
   contactPhone: "+91 70241 25383",
   links: {
-    twitter: "https://twitter.com/supereva",
-    github: "https://github.com/supereva",
-    linkedin: "https://www.linkedin.com/company/supereva",
+    instagram: "https://www.instagram.com/superevatechnology/",
+    facebook: "https://www.facebook.com/profile.php?id=61552211918589",
+    linkedin: "https://www.linkedin.com/company/supereva-technology-private-limited/?viewAsMember=true",
   },
   // Left unset until a real office location is confirmed — do not populate with
   // a placeholder address, since LocalBusiness structured data is machine-read.
@@ -166,7 +166,7 @@ export const footerLinkGroups: FooterLinkGroup[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "GitHub", href: siteConfig.links.github, icon: "github" },
+  { label: "Instagram", href: siteConfig.links.instagram, icon: "instagram" },
+  { label: "Facebook", href: siteConfig.links.facebook, icon: "facebook" },
   { label: "LinkedIn", href: siteConfig.links.linkedin, icon: "linkedin" },
-  { label: "Twitter", href: siteConfig.links.twitter, icon: "twitter" },
 ];
