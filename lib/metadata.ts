@@ -40,6 +40,11 @@ export function constructMetadata({
       title: pageTitle,
       description,
     },
+    icons: {
+      icon: "/icon.png",
+      shortcut: "/favicon.ico",
+      apple: "/apple-icon.png",
+    },
     robots: noIndex
       ? { index: false, follow: false }
       : { index: true, follow: true },

@@ -20,7 +20,7 @@ import { Container } from "@/components/layout/container";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { mainNavItems, siteConfig } from "@/constants/site";
-import { useScrollPosition } from "@/hooks";
+import { useScrollPosition, useMediaQuery } from "@/hooks";
 import { cn } from "@/lib/utils";
 
 import { ThemeLogo } from "@/components/layout/theme-logo";
@@ -28,6 +28,7 @@ import { ThemeLogo } from "@/components/layout/theme-logo";
 export function Navbar() {
   const pathname = usePathname();
   const scrolled = useScrollPosition();
+  const isDesktop = useMediaQuery("(min-width: 980px)");
 
   return (
     <header
@@ -35,7 +36,9 @@ export function Navbar() {
         "sticky top-0 z-50 w-full border-b transition-colors duration-200",
         scrolled
           ? "border-border bg-background/80 backdrop-blur-md"
-          : "border-transparent bg-background/60 backdrop-blur-md md:bg-transparent md:backdrop-blur-none"
+          : isDesktop
+            ? "border-transparent"
+            : "border-transparent bg-background/60 backdrop-blur-md"
       )}
     >
       <UtilityBar />
@@ -46,21 +49,23 @@ export function Navbar() {
             <ThemeLogo />
           </Link>
 
-          <DesktopNav pathname={pathname} />
+          {isDesktop && <DesktopNav pathname={pathname} />}
 
           <div className="flex shrink-0 items-center gap-2 md:gap-3">
             <ThemeToggle />
-            <Link
-              href="/contact"
-              className={cn(
-                buttonVariants({ size: "default" }),
-                "hidden rounded-full px-4 md:inline-flex"
-              )}
-            >
-              Contact Us
-              <ArrowRight className="size-3.5" aria-hidden="true" />
-            </Link>
-            <MobileNav pathname={pathname} />
+            {isDesktop && (
+              <Link
+                href="/contact"
+                className={cn(
+                  buttonVariants({ size: "default" }),
+                  "rounded-full px-4"
+                )}
+              >
+                Contact Us
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            )}
+            {!isDesktop && <MobileNav pathname={pathname} />}
           </div>
         </div>
       </Container>
@@ -130,10 +135,10 @@ function DesktopNav({ pathname }: { pathname: string }) {
 
   return (
     <NavigationMenu.Root
-      className="hidden min-w-0 flex-1 md:flex md:justify-center"
+      className="flex min-w-0 flex-1 justify-center"
       aria-label="Main"
     >
-      <NavigationMenu.List className="relative flex items-center gap-6">
+      <NavigationMenu.List className="relative flex items-center gap-2 xl:gap-6">
         {items.map((item) => {
           if (!item.columns) {
             const isActive = pathname === item.href;
@@ -232,7 +237,7 @@ function MobileNav({ pathname }: { pathname: string }) {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className=""
             aria-label="Open menu"
           >
             <Menu aria-hidden="true" />

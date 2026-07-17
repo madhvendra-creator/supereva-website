@@ -6,7 +6,7 @@ import { ThemeLogo } from "@/components/layout/theme-logo";
 import { footerLinkGroups, siteConfig, socialLinks } from "@/constants/site";
 
 export function Footer() {
-  const year = new Date().getFullYear();
+  const year = 2022;
 
   return (
     <footer className="w-full border-t border-border">

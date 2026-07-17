@@ -11,15 +11,15 @@ import { siteConfig } from "@/constants/site";
 // browser's CSS `aspect-ratio: auto` resolves differently before vs. after
 // the image loads, which is what trips next/image's "width or height
 // modified, but not the other" warning.
-const DARK_LOGO = { src: "/images/blacklogo.png", width: 144, height: 56 };
-const LIGHT_LOGO = { src: "/images/whitelogo.png", width: 123, height: 56 };
+const DARK_LOGO = { src: "/images/blacklogo.png", width: 240, height: 64 };
+const LIGHT_LOGO = { src: "/images/whitelogo.png", width: 240, height: 64 };
 
 export function ThemeLogo() {
   const { resolvedTheme } = useTheme();
   const mounted = useHasMounted();
 
   if (!mounted) {
-    return <div className="h-10 w-[140px]" />;
+    return <div className="h-[56px] w-[210px] xl:h-[64px] xl:w-[240px]" />;
   }
 
   const isDark = resolvedTheme === "dark";
@@ -32,7 +32,7 @@ export function ThemeLogo() {
       width={logo.width}
       height={logo.height}
       priority
-      className="h-10 w-auto object-contain"
+      className="h-[56px] w-auto object-contain xl:h-[64px]"
     />
   );
 }
