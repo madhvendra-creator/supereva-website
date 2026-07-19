@@ -101,7 +101,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
       <Results results={caseStudy.results} />
 
-      <Screenshots count={caseStudy.screenshotCount} />
+      <Screenshots screenshots={caseStudy.screenshots} />
 
       {relatedService && (
         <Section>

@@ -38,6 +38,11 @@ export const aiUnderwritingPlatform: CaseStudy = {
     ],
   },
   screenshotCount: 3,
+  screenshots: [
+    "/images/screenshots/ai-underwriting-1.png",
+    "/images/screenshots/ai-underwriting-2.png",
+    "/images/screenshots/ai-underwriting-3.png",
+  ],
   cta: {
     title: "Have a manual process that's starting to strain under growth?",
     description:

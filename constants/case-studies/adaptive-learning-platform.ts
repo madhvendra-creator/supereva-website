@@ -38,6 +38,11 @@ export const adaptiveLearningPlatform: CaseStudy = {
     ],
   },
   screenshotCount: 3,
+  screenshots: [
+    "/images/screenshots/adaptive-learning-1.png",
+    "/images/screenshots/adaptive-learning-2.png",
+    "/images/screenshots/adaptive-learning-3.png",
+  ],
   cta: {
     title: "Looking to make your course content actually adapt to learners?",
     description:

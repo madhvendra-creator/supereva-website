@@ -38,6 +38,11 @@ export const headlessStorefrontReplatform: CaseStudy = {
     ],
   },
   screenshotCount: 3,
+  screenshots: [
+    "/images/screenshots/headless-storefront-1.png",
+    "/images/screenshots/headless-storefront-2.png",
+    "/images/screenshots/headless-storefront-3.png",
+  ],
   cta: {
     title: "Does your storefront hold up under real traffic?",
     description:

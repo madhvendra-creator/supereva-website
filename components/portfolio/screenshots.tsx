@@ -1,12 +1,15 @@
+import Image from "next/image";
+
 import { Section } from "@/components/layout/section";
 import { FadeIn } from "@/components/motion/fade-in";
-import { ScreenshotPlaceholder } from "@/components/portfolio/screenshot-placeholder";
 
 type ScreenshotsProps = {
-  count: number;
+  screenshots: string[];
 };
 
-export function Screenshots({ count }: ScreenshotsProps) {
+export function Screenshots({ screenshots }: ScreenshotsProps) {
+  if (screenshots.length === 0) return null;
+
   return (
     <Section>
       <FadeIn className="mx-auto max-w-2xl text-center">
@@ -17,9 +20,17 @@ export function Screenshots({ count }: ScreenshotsProps) {
       </FadeIn>
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {Array.from({ length: count }).map((_, index) => (
+        {screenshots.map((src, index) => (
           <FadeIn key={index} delay={index * 0.06}>
-            <ScreenshotPlaceholder label={`Screenshot placeholder ${index + 1}`} />
+            <div className="overflow-hidden rounded-xl border border-border bg-muted/40">
+              <Image
+                src={src}
+                alt={`Product screenshot ${index + 1}`}
+                width={600}
+                height={400}
+                className="aspect-video w-full object-cover"
+              />
+            </div>
           </FadeIn>
         ))}
       </div>

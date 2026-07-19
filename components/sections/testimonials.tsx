@@ -30,7 +30,7 @@ export function Testimonials() {
                 {testimonial.name}
               </p>
               <p className="text-sm text-muted-foreground">
-                {testimonial.role}, {testimonial.company}
+                {testimonial.role}
               </p>
             </div>
           </FadeIn>

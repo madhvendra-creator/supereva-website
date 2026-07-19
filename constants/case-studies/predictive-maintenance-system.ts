@@ -37,6 +37,11 @@ export const predictiveMaintenanceSystem: CaseStudy = {
     ],
   },
   screenshotCount: 3,
+  screenshots: [
+    "/images/screenshots/predictive-maintenance-1.png",
+    "/images/screenshots/predictive-maintenance-2.png",
+    "/images/screenshots/predictive-maintenance-3.png",
+  ],
   cta: {
     title: "Losing production time to unplanned downtime?",
     description:

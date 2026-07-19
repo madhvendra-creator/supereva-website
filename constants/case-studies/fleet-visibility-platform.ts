@@ -37,6 +37,11 @@ export const fleetVisibilityPlatform: CaseStudy = {
     ],
   },
   screenshotCount: 3,
+  screenshots: [
+    "/images/screenshots/fleet-visibility-1.png",
+    "/images/screenshots/fleet-visibility-2.png",
+    "/images/screenshots/fleet-visibility-3.png",
+  ],
   cta: {
     title: "Still tracking deliveries over the phone?",
     description:

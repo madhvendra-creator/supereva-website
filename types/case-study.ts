@@ -23,6 +23,7 @@ export type CaseStudy = {
     metrics: CaseStudyMetric[];
   };
   screenshotCount: number;
+  screenshots: string[];
   image?: string;
   cta: {
     title: string;

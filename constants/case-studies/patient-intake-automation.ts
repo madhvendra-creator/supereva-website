@@ -38,6 +38,11 @@ export const patientIntakeAutomation: CaseStudy = {
     ],
   },
   screenshotCount: 3,
+  screenshots: [
+    "/images/screenshots/patient-intake-1.png",
+    "/images/screenshots/patient-intake-2.png",
+    "/images/screenshots/patient-intake-3.png",
+  ],
   cta: {
     title: "Still running intake or onboarding on paper?",
     description:

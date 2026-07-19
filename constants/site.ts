@@ -16,7 +16,7 @@ export const siteConfig = {
     "Supereva Technology is an AI, product development, and data engineering company building AI-first software products and platforms.",
   keywords: ["Supereva", "AI software", "AI-first company", "product engineering"],
   contactEmail: "info@superevatechnology.com",
-  contactPhone: "+91 70241 25383",
+  contactPhone: "+91 78792 02985",
   links: {
     instagram: "https://www.instagram.com/superevatechnology/",
     facebook: "https://www.facebook.com/profile.php?id=61552211918589",
